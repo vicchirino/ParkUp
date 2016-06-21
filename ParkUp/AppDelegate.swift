@@ -56,8 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func removeSplashView() {
         self.runAfterDelay(2) { () -> Void in
             // TODO: CHECK IF SESSIONS HAVE INFO
-            if let accessToken = FBSDKAccessToken.currentAccessToken() {
-                print(accessToken)
+            if FBSDKAccessToken.currentAccessToken() != nil {
                 self.startApp()
             } else {
                 self.showLoginView()

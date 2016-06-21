@@ -84,12 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-ParkUp/Alamofire.framework"
   install_framework "Pods-ParkUp/Bolts.framework"
   install_framework "Pods-ParkUp/FBSDKCoreKit.framework"
   install_framework "Pods-ParkUp/FBSDKLoginKit.framework"
   install_framework "Pods-ParkUp/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-ParkUp/Alamofire.framework"
   install_framework "Pods-ParkUp/Bolts.framework"
   install_framework "Pods-ParkUp/FBSDKCoreKit.framework"
   install_framework "Pods-ParkUp/FBSDKLoginKit.framework"

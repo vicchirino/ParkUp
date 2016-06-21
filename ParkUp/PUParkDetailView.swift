@@ -10,16 +10,18 @@ import UIKit
 import SDWebImage
 
 protocol PUParkDetailDelegate {
-    
+    func puParDelegateBookPark(park: Parking?)
 }
 
 class PUParkDetailView: UIView {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var parkStreet: UILabel!
-    
+    @IBOutlet weak var parkButton: UIButton!
+    var park: Parking?
     private var imageTokens : [SDWebImageOperation] = []
     var viewDisplayed = false
+    var delegate: PUParkDetailDelegate?
     
     func setImageURL(urlString: String?) {
         if let thumbnailUrlString = urlString,
@@ -42,7 +44,15 @@ class PUParkDetailView: UIView {
 
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.parkButton.addTarget(self, action: #selector(PUParkDetailView.parkAction), forControlEvents: .TouchUpInside)
+        self.parkButton.layer.borderWidth = 1
+        self.parkButton.layer.borderColor = UIColor.grayColor().CGColor
+    }
+    
     func updateViewWithPark(park: Parking) {
+        self.park = park
         self.userName.text = park.ownerName
         self.parkStreet.text = park.street
         if let url = park.ownerImageThumb where url != "" {
@@ -57,6 +67,10 @@ class PUParkDetailView: UIView {
             $0.cancel()
         })
         self.imageTokens.removeAll()
+    }
+    
+    func parkAction() {
+        self.delegate?.puParDelegateBookPark(self.park)
     }
 
 }

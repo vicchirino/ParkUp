@@ -7,6 +7,7 @@ use_frameworks!
 target 'ParkUp' do
 pod ’FBSDKLoginKit'
 pod 'SDWebImage'
+pod 'Alamofire'
 end
 
 

@@ -14,6 +14,8 @@
 		B55A5D551CECF24F00DC5149 /* PUAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A5D541CECF24F00DC5149 /* PUAsset.swift */; };
 		B55A5D571CECF3FB00DC5149 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A5D561CECF3FB00DC5149 /* UIViewExtension.swift */; };
 		B55A5D591CECF47200DC5149 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A5D581CECF47200DC5149 /* UIImageExtension.swift */; };
+		B5AF56D01CFDEE0100B774CE /* PUBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF56CF1CFDEE0100B774CE /* PUBookViewController.swift */; };
+		B5CA93581CFA52D000E0FBE3 /* PUClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA93571CFA52D000E0FBE3 /* PUClient.swift */; };
 		B5E32F971CE3E43F00E476D0 /* PUFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E32F961CE3E43F00E476D0 /* PUFirstViewController.swift */; };
 		B5E32F991CE3E69B00E476D0 /* PUMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E32F981CE3E69B00E476D0 /* PUMapViewController.swift */; };
 		B5ECA1981CD8006000FA7E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ECA1971CD8006000FA7E69 /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 		B55A5D541CECF24F00DC5149 /* PUAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUAsset.swift; sourceTree = "<group>"; };
 		B55A5D561CECF3FB00DC5149 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B55A5D581CECF47200DC5149 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		B5AF56CF1CFDEE0100B774CE /* PUBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUBookViewController.swift; sourceTree = "<group>"; };
+		B5CA93571CFA52D000E0FBE3 /* PUClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUClient.swift; sourceTree = "<group>"; };
 		B5E32F961CE3E43F00E476D0 /* PUFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUFirstViewController.swift; sourceTree = "<group>"; };
 		B5E32F981CE3E69B00E476D0 /* PUMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUMapViewController.swift; sourceTree = "<group>"; };
 		B5ECA1941CD8006000FA7E69 /* ParkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +155,8 @@
 				B55A5D581CECF47200DC5149 /* UIImageExtension.swift */,
 				B55A5D561CECF3FB00DC5149 /* UIViewExtension.swift */,
 				B55A5D521CECE9A500DC5149 /* PUParkDetailView.swift */,
+				B5CA93571CFA52D000E0FBE3 /* PUClient.swift */,
+				B5AF56CF1CFDEE0100B774CE /* PUBookViewController.swift */,
 			);
 			path = ParkUp;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 				TargetAttributes = {
 					B5ECA1931CD8006000FA7E69 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QN34A58MDP;
 					};
 					B5ECA1AA1CD8006000FA7E69 = {
 						CreatedOnToolsVersion = 7.3;
@@ -367,11 +374,13 @@
 				B5E32F971CE3E43F00E476D0 /* PUFirstViewController.swift in Sources */,
 				B55A5D571CECF3FB00DC5149 /* UIViewExtension.swift in Sources */,
 				B55A5D531CECE9A500DC5149 /* PUParkDetailView.swift in Sources */,
+				B5AF56D01CFDEE0100B774CE /* PUBookViewController.swift in Sources */,
 				B5E32F991CE3E69B00E476D0 /* PUMapViewController.swift in Sources */,
 				B55A5D551CECF24F00DC5149 /* PUAsset.swift in Sources */,
 				B5ECA19A1CD8006000FA7E69 /* ViewController.swift in Sources */,
 				B55A5D511CECE05A00DC5149 /* Parking.swift in Sources */,
 				B5ECA1981CD8006000FA7E69 /* AppDelegate.swift in Sources */,
+				B5CA93581CFA52D000E0FBE3 /* PUClient.swift in Sources */,
 				B5ECA1C91CD8055500FA7E69 /* PULoginViewController.swift in Sources */,
 				B50723961CE9716F006EE154 /* PinAnnotation.swift in Sources */,
 				B55A5D591CECF47200DC5149 /* UIImageExtension.swift in Sources */,
@@ -518,10 +527,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParkUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vchirino.ParkUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkUp/ParkUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -533,10 +546,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParkUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vchirino.ParkUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkUp/ParkUp-Bridging-Header.h";
 			};
 			name = Release;
