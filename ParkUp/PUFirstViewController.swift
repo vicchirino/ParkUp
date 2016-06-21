@@ -56,7 +56,7 @@ class PUFirstViewController: UIViewController, PUMapViewControllerDelegate, PUPa
     // MARK: - PUParkDetailDelegate
 
     func puParDelegateBookPark(park: Parking?) {
-        print("INTENTAR RESERVAR")
+//        print("INTENTAR RESERVAR")
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nvc = mainStoryboard.instantiateViewControllerWithIdentifier("bookNavigationController") as! UINavigationController
         if let vc = nvc.viewControllers[0] as? PUBookViewController {

@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.runAfterDelay(2) { () -> Void in
             // TODO: CHECK IF SESSIONS HAVE INFO
             if FBSDKAccessToken.currentAccessToken() != nil {
+                print(FBSDKAccessToken.currentAccessToken().tokenString)
                 self.startApp()
             } else {
                 self.showLoginView()

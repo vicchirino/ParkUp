@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class Parking: NSObject {
+    
     var latitude: CLLocationDegrees?
     var longitud: CLLocationDegrees?
     var street: String?

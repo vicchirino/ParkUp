@@ -14,6 +14,7 @@ class PUBookViewController: UIViewController {
     @IBOutlet weak var hourFromPicker: UIDatePicker!
     @IBOutlet weak var hourToPicker: UIDatePicker!
     @IBOutlet weak var statusLabel: UILabel!
+    
     var date: NSDate?
     var hourFrom: String?
     var hourTo: String?
@@ -29,6 +30,7 @@ class PUBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.statusLabel.text = "Chequeando disponibilidad.."
+        self.statusLabel.userInteractionEnabled = false
         self.statusLabel.textColor = UIColor(red: 111/255, green: 113/255, blue: 123/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
@@ -74,21 +76,36 @@ class PUBookViewController: UIViewController {
                         let parkObject = Parking()
                         parkObject.createParkingWithDic(parkDic)
                         if parkObject.garage_id == self.park?.garage_id, let bool = parkObject.available where bool == true{
-//                            print("disponible")
                             self.statusLabel.text = "Disponible"
+                            self.statusLabel.userInteractionEnabled = true
                             self.statusLabel.textColor = UIColor(red: 32/255, green: 177/255, blue: 39/255, alpha: 1)
                             return
                         }
                     }
-//                    print("no disponible")
                     self.statusLabel.text = "No Disponible"
+                    self.statusLabel.userInteractionEnabled = false
                     self.statusLabel.textColor = UIColor(red: 220/255, green: 50/255, blue: 40/255, alpha: 1)
                 }
             })
+        } else {
+            self.statusLabel.text = "No Disponible"
+            self.statusLabel.userInteractionEnabled = false
+            self.statusLabel.textColor = UIColor(red: 220/255, green: 50/255, blue: 40/255, alpha: 1)
         }
-        self.statusLabel.text = "No Disponible"
-        self.statusLabel.textColor = UIColor(red: 220/255, green: 50/255, blue: 40/255, alpha: 1)
-
+    }
+    
+    @IBAction func rentParkAction(sender: AnyObject) {
+        guard let p = self.park, let d = self.date, let hf = self.hourFrom, let ht = self.hourTo else {
+            return
+        }
+        
+        PUClient.rentParks(p, d, hf, ht) { (error) -> (Void) in
+            if error != nil {
+                //  todo: display error
+            } else {
+                
+            }
+        }
     }
 
     /*

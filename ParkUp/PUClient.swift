@@ -12,6 +12,7 @@ import Alamofire
 public let PUClient = PUClientClass()
 
 typealias parksBlock = (parks: [NSDictionary]?,error: NSError?) -> (Void)
+typealias rentBlock = (error: NSError?) -> (Void)
 
 public class PUClientClass {
     let manager: Manager = {
@@ -47,10 +48,43 @@ public class PUClientClass {
 
         self.manager.request(.GET, urlToUse, parameters: nil, encoding: .JSON, headers: nil).responseJSON { (response) in
             if let parksArray = response.result.value as? [NSDictionary] {
-                print(parksArray)
+//                print(parksArray)
                 completion(parks: parksArray, error: response.result.error)
             }
         }
     }
+    
+    
+    func rentParks(park: Parking, _ date: NSDate?, _ hourFrom: String, _ hourTo: String,completion: rentBlock) {
+        
+        guard let garageID = park.garage_id else {
+            return
+        }
+        
+        let urlToUse = "http://hidden-forest-50306.herokuapp.com/api/rent/\(garageID)"
+        
+        var d = NSDate()
+        if let dateToUse = date {
+            d = dateToUse
+        }
+        
+        let styler = NSDateFormatter()
+        styler.dateFormat = "yyyy-MM-dd"
+        let fecha = styler.stringFromDate(d)
+        
+ 
+        let parameters : [String : AnyObject] = ["idGarage" : garageID,
+                          "day" : fecha,
+                          "hourFrom" : hourFrom,
+                          "hourTo" : hourTo,
+                          "userId" : FBSDKAccessToken.currentAccessToken().tokenString]
+        
+        
+        self.manager.request(.POST, urlToUse, parameters: parameters, encoding: .JSON, headers: nil).responseJSON { (response) in
+            print(response.result)
+            completion(error: response.result.error)
+        }
+    }
+    
     
 }
