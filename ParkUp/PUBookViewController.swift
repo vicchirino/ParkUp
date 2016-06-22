@@ -100,11 +100,16 @@ class PUBookViewController: UIViewController {
         }
         
         PUClient.rentParks(p, d, hf, ht) { (error) -> (Void) in
+            var text = ""
             if error != nil {
-                //  todo: display error
+                text = "Hubo un inconveniente y no hemos podido procesar su pedido. Intente más tarde. Muchas gracias"
             } else {
-                
+                text = "Se ha enviado el pedido del alquiler al propietario de la cochera exitosamente. Nosotros le avisaremos si confirma. Muchas gracias!"
             }
+            let alert = UIAlertController(title: "Pedido de reserva!", message: text, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
 
