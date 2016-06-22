@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PUFirstViewController: UIViewController, PUMapViewControllerDelegate {
+class PUFirstViewController: UIViewController, PUMapViewControllerDelegate, PUParkDetailDelegate {
     
     @IBOutlet weak var parkDetailView: PUParkDetailView!
     @IBOutlet weak var containerView: UIView!
@@ -17,6 +17,7 @@ class PUFirstViewController: UIViewController, PUMapViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomConstraint.constant = -100
+        parkDetailView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +50,20 @@ class PUFirstViewController: UIViewController, PUMapViewControllerDelegate {
             self.parkDetailView.userImage.image = UIImage(named: "user_placeholder")
         } else {
 
+        }
+    }
+    
+    // MARK: - PUParkDetailDelegate
+
+    func puParDelegateBookPark(park: Parking?) {
+        print("INTENTAR RESERVAR")
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nvc = mainStoryboard.instantiateViewControllerWithIdentifier("bookNavigationController") as! UINavigationController
+        if let vc = nvc.viewControllers[0] as? PUBookViewController {
+            vc.park = park
+            self.presentViewController(nvc, animated: true) {
+                
+            }
         }
     }
     

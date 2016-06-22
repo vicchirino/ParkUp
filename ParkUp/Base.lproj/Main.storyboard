@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WmY-eX-4Z2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WmY-eX-4Z2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -105,6 +105,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-92-aXu" customClass="PUParkDetailView" customModule="ParkUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="500" width="600" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO9-HS-sh1">
+                                        <rect key="frame" x="530" y="30" width="60" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="9vT-oK-Cmq"/>
+                                            <constraint firstAttribute="width" constant="60" id="Oiy-eD-IBP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Park!">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-qN-Wqf">
                                         <rect key="frame" x="10" y="10" width="80" height="80"/>
                                         <constraints>
@@ -120,15 +137,15 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Chirino" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-UG-fK7" userLabel="User Name Label">
-                                        <rect key="frame" x="110" y="24" width="115" height="22.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Chirino" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-UG-fK7" userLabel="User Name Label">
+                                        <rect key="frame" x="110" y="26.5" width="410" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thompson 837" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efL-4y-Pn2" userLabel="Street Label">
-                                        <rect key="frame" x="110" y="54" width="128" height="22.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thompson 837" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efL-4y-Pn2" userLabel="Street Label">
+                                        <rect key="frame" x="110" y="58.5" width="410" height="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -138,12 +155,25 @@
                                     <constraint firstItem="efL-4y-Pn2" firstAttribute="centerY" secondItem="vgr-qN-Wqf" secondAttribute="centerY" constant="15" id="0s7-5g-w2f"/>
                                     <constraint firstAttribute="height" constant="100" id="BCm-7a-lS5"/>
                                     <constraint firstItem="vgr-qN-Wqf" firstAttribute="leading" secondItem="TXS-92-aXu" secondAttribute="leading" constant="10" id="EBQ-oc-ufM"/>
+                                    <constraint firstItem="ZO9-HS-sh1" firstAttribute="leading" secondItem="mb9-UG-fK7" secondAttribute="trailing" constant="10" id="Hzo-xb-sx0"/>
                                     <constraint firstItem="mb9-UG-fK7" firstAttribute="leading" secondItem="vgr-qN-Wqf" secondAttribute="trailing" constant="20" id="JDa-HX-w1p"/>
+                                    <constraint firstAttribute="trailing" secondItem="efL-4y-Pn2" secondAttribute="trailing" id="Ou4-qP-Out"/>
+                                    <constraint firstItem="efL-4y-Pn2" firstAttribute="trailing" secondItem="mb9-UG-fK7" secondAttribute="trailing" id="T70-Bv-fFd"/>
                                     <constraint firstItem="mb9-UG-fK7" firstAttribute="centerY" secondItem="vgr-qN-Wqf" secondAttribute="centerY" constant="-15" id="YZp-dH-sQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZO9-HS-sh1" secondAttribute="trailing" constant="10" id="eJH-ij-vs9"/>
+                                    <constraint firstItem="ZO9-HS-sh1" firstAttribute="centerY" secondItem="TXS-92-aXu" secondAttribute="centerY" id="izD-nj-puc"/>
+                                    <constraint firstAttribute="trailing" secondItem="mb9-UG-fK7" secondAttribute="trailing" id="kN8-7Z-jxG"/>
                                     <constraint firstItem="efL-4y-Pn2" firstAttribute="leading" secondItem="mb9-UG-fK7" secondAttribute="leading" id="nr7-U0-oZh"/>
                                     <constraint firstItem="vgr-qN-Wqf" firstAttribute="centerY" secondItem="TXS-92-aXu" secondAttribute="centerY" id="zIW-RA-T98"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kN8-7Z-jxG"/>
+                                        <exclude reference="Ou4-qP-Out"/>
+                                    </mask>
+                                </variation>
                                 <connections>
+                                    <outlet property="parkButton" destination="ZO9-HS-sh1" id="GxO-5s-D1r"/>
                                     <outlet property="parkStreet" destination="efL-4y-Pn2" id="jk5-ZK-xZG"/>
                                     <outlet property="userImage" destination="vgr-qN-Wqf" id="PeQ-wk-ZQx"/>
                                     <outlet property="userName" destination="mb9-UG-fK7" id="WeA-4H-sjD"/>
@@ -221,8 +251,146 @@
             </objects>
             <point key="canvasLocation" x="1069" y="282"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GYu-wH-MGi">
+            <objects>
+                <navigationController storyboardIdentifier="bookNavigationController" id="usk-cX-WAE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqV-JW-Vqm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Onn-gR-oED" kind="relationship" relationship="rootViewController" id="gQL-Oq-cy8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUx-LM-cgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405" y="991"/>
+        </scene>
+        <!--Reserva-->
+        <scene sceneID="vy7-25-dMi">
+            <objects>
+                <viewController id="Onn-gR-oED" customClass="PUBookViewController" customModule="ParkUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BhG-Z7-Knn"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Y7-qq-8Mw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f52-nC-2fp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Día" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH6-pu-xbk">
+                                <rect key="frame" x="287.5" y="74" width="25" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desde" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu0-72-mTo">
+                                <rect key="frame" x="275" y="214" width="49" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uWe-wC-6ua">
+                                <rect key="frame" x="20" y="104" width="560" height="100"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9wq-P5-ORe"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="486404792.92048001">
+                                    <!--2016-05-31 16:26:32 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Onn-gR-oED" eventType="valueChanged" id="ftd-2l-cCM"/>
+                                </connections>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9lQ-MT-5ZQ" userLabel="Hour Picker From">
+                                <rect key="frame" x="20" y="244" width="560" height="100"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="486405180.73336703">
+                                    <!--2016-05-31 16:33:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Onn-gR-oED" eventType="valueChanged" id="Lc6-cT-NP7"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hasta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-lu-FLu">
+                                <rect key="frame" x="278" y="354" width="44.5" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="22b-U7-322" userLabel="Hour Picker To">
+                                <rect key="frame" x="20" y="384" width="560" height="100"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="486405380.07564998">
+                                    <!--2016-05-31 16:36:20 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Onn-gR-oED" eventType="valueChanged" id="DWf-oH-GOs"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chequeando disponibilidad.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gem-4T-avM">
+                                <rect key="frame" x="133" y="559.5" width="334" height="30.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uWe-wC-6ua" firstAttribute="leading" secondItem="f52-nC-2fp" secondAttribute="leadingMargin" id="7e9-h9-2eF"/>
+                            <constraint firstItem="9lQ-MT-5ZQ" firstAttribute="top" secondItem="qu0-72-mTo" secondAttribute="bottom" constant="10" id="9DD-uu-AhA"/>
+                            <constraint firstItem="22b-U7-322" firstAttribute="top" secondItem="vdd-lu-FLu" secondAttribute="bottom" constant="10" id="FEt-Vz-xCy"/>
+                            <constraint firstItem="qu0-72-mTo" firstAttribute="top" secondItem="uWe-wC-6ua" secondAttribute="bottom" constant="10" id="JBD-Gs-sFg"/>
+                            <constraint firstItem="JH6-pu-xbk" firstAttribute="top" secondItem="BhG-Z7-Knn" secondAttribute="bottom" constant="10" id="Z0y-fi-AaJ"/>
+                            <constraint firstItem="9lQ-MT-5ZQ" firstAttribute="trailing" secondItem="uWe-wC-6ua" secondAttribute="trailing" id="ZqJ-q3-2Hk"/>
+                            <constraint firstItem="9lQ-MT-5ZQ" firstAttribute="height" secondItem="uWe-wC-6ua" secondAttribute="height" id="dy5-b2-ldt"/>
+                            <constraint firstItem="JH6-pu-xbk" firstAttribute="centerX" secondItem="f52-nC-2fp" secondAttribute="centerX" id="eb9-rC-iTj"/>
+                            <constraint firstItem="9lQ-MT-5ZQ" firstAttribute="leading" secondItem="uWe-wC-6ua" secondAttribute="leading" id="faz-UF-X0E"/>
+                            <constraint firstItem="uWe-wC-6ua" firstAttribute="top" secondItem="BhG-Z7-Knn" secondAttribute="bottom" id="hMs-Eo-yeW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uWe-wC-6ua" secondAttribute="trailing" id="l5Y-dw-qFe"/>
+                            <constraint firstItem="22b-U7-322" firstAttribute="height" secondItem="9lQ-MT-5ZQ" secondAttribute="height" id="lln-FG-3WD"/>
+                            <constraint firstItem="vdd-lu-FLu" firstAttribute="top" secondItem="9lQ-MT-5ZQ" secondAttribute="bottom" constant="10" id="oQZ-yU-vvq"/>
+                            <constraint firstItem="qu0-72-mTo" firstAttribute="centerX" secondItem="f52-nC-2fp" secondAttribute="centerX" id="q17-SS-Z4h"/>
+                            <constraint firstItem="uWe-wC-6ua" firstAttribute="top" secondItem="JH6-pu-xbk" secondAttribute="bottom" constant="10" id="rEr-sj-gcF"/>
+                            <constraint firstItem="22b-U7-322" firstAttribute="leading" secondItem="9lQ-MT-5ZQ" secondAttribute="leading" id="sN5-Cd-ZEi"/>
+                            <constraint firstItem="gem-4T-avM" firstAttribute="centerX" secondItem="f52-nC-2fp" secondAttribute="centerX" id="uL6-jc-J8E"/>
+                            <constraint firstItem="5Y7-qq-8Mw" firstAttribute="top" secondItem="gem-4T-avM" secondAttribute="bottom" constant="10" id="vnp-Lw-o56"/>
+                            <constraint firstItem="22b-U7-322" firstAttribute="trailing" secondItem="9lQ-MT-5ZQ" secondAttribute="trailing" id="wa5-DC-rAi"/>
+                            <constraint firstItem="vdd-lu-FLu" firstAttribute="centerX" secondItem="f52-nC-2fp" secondAttribute="centerX" id="wrb-iG-PSp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hMs-Eo-yeW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reserva" id="S1z-fW-V9u">
+                        <barButtonItem key="leftBarButtonItem" image="cruz" id="ySi-oA-KXR">
+                            <connections>
+                                <action selector="exitAction:" destination="Onn-gR-oED" id="wc0-JC-OqW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="uWe-wC-6ua" id="KpJ-yp-blZ"/>
+                        <outlet property="hourFromPicker" destination="9lQ-MT-5ZQ" id="onH-gu-eca"/>
+                        <outlet property="hourToPicker" destination="22b-U7-322" id="879-Ub-3kM"/>
+                        <outlet property="statusLabel" destination="gem-4T-avM" id="pFF-Ju-ruf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwV-tS-mw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1069" y="991"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="cruz" width="26" height="25"/>
         <image name="facebookbutton" width="165" height="28"/>
         <image name="logo" width="514" height="514"/>
         <image name="user_placeholder" width="96" height="96"/>

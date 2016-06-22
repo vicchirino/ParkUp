@@ -41,35 +41,25 @@ class PUMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         // todo crear muchos pines
         
+        var parksArray: [NSDictionary] = []
         
-        let park1 = Parking()
-        park1.createParkingWithLocation(-34.6141563, -58.3814979, "Venezuela 920", "Victor Chirino", "5")
-        park1.ownerImageThumb = "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/12715421_10153942390418875_2002400600975061259_n.jpg?oh=f03ea1b688e117b40ba0cae9812511ec&oe=57D5F0EF&__gda__=1473384842_89451f8844661ea116b41f3a6cd18a10"
         
-        let park2 = Parking()
-        park2.createParkingWithLocation(-34.6143839, -58.3740375, "Defensa 563", "Leandro Mora", "5")
-        park2.ownerImageThumb = "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/12809686_10208952026018965_8410965950898150366_n.jpg?oh=b25135353c45a3fcde8f91684f917719&oe=57E4230E&__gda__=1469900395_8e8f2226bd5699ebc0aefe1f66317e32"
-
-        let park3 = Parking()
-        park3.createParkingWithLocation(-34.6151466, -58.3764757, "Peru 624", "Julian Larralde", "4")
-        park3.ownerImageThumb = "https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-9/12002894_10207496134379926_4730508451595333112_n.jpg?oh=a35d7bc92b24d3c5f7f40421916a0dd9&oe=57E100C9"
-
-        let park4 = Parking()
-        park4.createParkingWithLocation(-34.6137027, -58.3756093, "Venezuela 509", "Eloy Kramar", "3")
-        park4.ownerImageThumb = ""
-
-        let parksArray = [park1,park2,park3,park4]
-
-        for park in parksArray {
-            let coord = CLLocationCoordinate2DMake(park.latitude!, park.longitud!);
-            let pinAnnotation = PinAnnotation()
-            pinAnnotation.park = park
-            pinAnnotation.setCoordinate(coord)
-            pinAnnotation.title = park.street
-            self.mapView.addAnnotation(pinAnnotation)
+        PUClient.fetchParks(nil, nil, nil) { (parks, error) -> (Void) in
+            guard let array = parks else {
+                return
+            }
+            parksArray = array
+            for park in parksArray {
+                let parkDTO = Parking()
+                parkDTO.createParkingWithDic(park)
+                let coord = CLLocationCoordinate2DMake(parkDTO.latitude!, parkDTO.longitud!);
+                let pinAnnotation = PinAnnotation()
+                pinAnnotation.park = parkDTO
+                pinAnnotation.setCoordinate(coord)
+                pinAnnotation.title = parkDTO.street
+                self.mapView.addAnnotation(pinAnnotation)
+            }
         }
-          
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,10 +102,15 @@ class PUMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is PinAnnotation {
+        if let pinAnnotation = annotation as? PinAnnotation {
             let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
-            
-            pinAnnotationView.pinColor = .Green
+
+            if let park = pinAnnotation.park,
+                let available = park.available where available == true {
+                pinAnnotationView.pinColor = .Green
+            } else {
+                pinAnnotationView.pinColor = .Red
+            }            
             pinAnnotationView.draggable = true
             pinAnnotationView.canShowCallout = true
             pinAnnotationView.animatesDrop = true
