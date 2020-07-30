@@ -1,2 +1,3 @@
 # ParkUp
-ParkUp iOS Project
+
+iOS Application for collage propouses
